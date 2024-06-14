@@ -1,3 +1,6 @@
+.horizontal-card {
+    flex-direction: row;
+}
 
 .embed-responsive {
     position: relative;

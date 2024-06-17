@@ -100,7 +100,7 @@
   <div class="container mb-4">
     <div class="row row-cols-1">
       <div class="col mt-5">
-        <form>
+        <form method="post" id="google-form">
           <label for="fname">First Name</label>
           <input type="text" id="fname" name="firstname" placeholder="Your name..">
       
@@ -143,6 +143,32 @@
       else document.getElementById('other').style.visibility = 'hidden';
   
   }
+  </script>
+  <script>
+    // Get Form by its id
+    const form = document.getElementById("google-form");
+
+    // App Script url
+    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbyPrw4bQXknSjHZonA7NAitoml7YtQZhUxLc7kMp6inwKxunAnA7dZGZbgdD41A8z54/exec";
+    // Fuction to send data to google form when submit button is clicked
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      try {
+        fetch(googleAppScriptUrl, {
+          method: "POST",
+          mode: "no-cors",
+          body: new FormData(form),
+        }).then(() => {
+          // Do someting After successfull submission
+          form.reset();
+          console.log("success");
+          alert("Successfully Submitted");
+        });
+      } catch (error) {
+        // Do something for the error case
+        console.log(error);
+      }
+    });
   </script>
 </body>
 </html>

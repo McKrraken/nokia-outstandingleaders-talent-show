@@ -106,7 +106,7 @@
   <div class="container mb-4">
     <div class="row row-cols-1">
       <div class="col mt-5">
-        <form>
+        <form method="post" id="google-form">
           <label for="fname">First Name</label>
           <input type="text" id="fname" name="firstname" placeholder="Your name..">
       
@@ -128,16 +128,16 @@
           <textarea id="subject" name="description" placeholder="Enter description of your video.." style="height:100px"></textarea>
       
           <label class="radio-inline">
-            <input type="radio" name="talent" checked id="noCheck" onclick="javascript:yesnoCheck();">Music
+            <input type="radio" name="talent" checked id="noCheck" onclick="javascript:yesnoCheck();" value="Music">Music
           </label>
           <label class="radio-inline">
-            <input type="radio" name="talent" id="noCheck" onclick="javascript:yesnoCheck();">Dance
+            <input type="radio" name="talent" id="noCheck" onclick="javascript:yesnoCheck();" value="Dance">Dance
           </label>
           <label class="radio-inline">
-            <input type="radio" name="talent" id="noCheck" onclick="javascript:yesnoCheck();">Technology
+            <input type="radio" name="talent" id="noCheck" onclick="javascript:yesnoCheck();" value="Technology">Technology
           </label>
           <label class="radio-inline">
-            <input type="radio" name="talent" onclick="javascript:yesnoCheck();" id="yesCheck"> Other
+            <input type="radio" name="talent" onclick="javascript:yesnoCheck();" id="yesCheck" value="Other"> Other
           </label>
           <div id="other" style="visibility:hidden">
             If other, please give a category: <input type='text' id='other' name='other'>
@@ -167,6 +167,33 @@
       else document.getElementById('other').style.visibility = 'hidden';
   
   }
+  </script>
+
+  <script>
+    // Get Form by its id
+    const form = document.getElementById("google-form");
+
+    // App Script url
+    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbz-gkCnRnsPKcudJffl8FANQ89oKMPUs_zUsO4i3I8tIGfMGujyCEyLY-A5PpTpUZx8Jw/exec";
+    // Fuction to send data to google form when submit button is clicked
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      try {
+        fetch(googleAppScriptUrl, {
+          method: "POST",
+          mode: "no-cors",
+          body: new FormData(form),
+        }).then(() => {
+          // Do someting After successfull submission
+          form.reset();
+          console.log("success");
+          alert("Successfully Submitted");
+        });
+      } catch (error) {
+        // Do something for the error case
+        console.log(error);
+      }
+    });
   </script>
 </body>
 </html>

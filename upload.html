@@ -1,0 +1,215 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Nokia OUTStanding Leaders Personal Stories</title>
+  <meta name="description" content="Nokia OUTStanding Personal Stories">
+  <meta name="author" content="Nokia">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://nokia.com/themes/custom/onenokia_reskin/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://nokia.com/themes/custom/onenokia_reskin/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://nokia.com/themes/custom/onenokia_reskin/icons/apple-touch-icon.png">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300&family=Montserrat&display=swap" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+    
+    input[type=text], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+    
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+  </style>
+  <header class="navbar navbar-expand-lg bd-navbar mb-5">
+    <nav class="container navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="https://www.nokia.com/themes/custom/onenokia_reskin/logo.svg" alt="Nokia"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: right;">
+          <ul class="navbar-nav me-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vote.html">Vote</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="stories.html">Stories</a>
+            </li>
+            <li class="nav-item">
+              <a type="button" class="btn btn-primary" href="upload.html">Upload</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="hero">
+    <div class="container primary-container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <h1>Upload your Talent</h1>
+          <p> 
+            Record a video demonstrating your talent (5 min or less). ​<br>
+
+            Don’t just think this should only be singing, dancing etc. This can be ANYTHING you love to do​. <br>
+            
+            Record landscape​ <br>
+            
+            Make sure to be in a quiet place if sound is part of your talent. <br>
+
+            Submit by September 30th</p>
+        </div>
+        <div class="col-md-6 mb-5">
+          <img src="assets/img/show_talent_image.jpg" alt="Nokia Pride" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+  <div class="container mb-4">
+    <div class="row row-cols-1">
+      <div class="col mt-5">
+        <form method="post" id="google-form">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email..">
+      
+          <label for="mobile">Mobile Number</label>
+          <input type="text" id="mobile" name="mobile" placeholder="Enter number..">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Enter your company name..">
+          <label for="link">Video Link</label>
+          <input type="text" id="link" name="link" placeholder="add your video link">
+      
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Enter video Title">
+          <label for="description">Description</label>
+          <textarea id="subject" name="description" placeholder="Enter description of your video.." style="height:100px"></textarea>
+      
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="talent" id="inlineRadio1" value="Standup Comedy" onclick="javascript:yesnoCheck();">
+            <label class="form-check-label" for="inlineRadio1">Standup Comedy</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="talent" id="inlineRadio2" value="Music" onclick="javascript:yesnoCheck();">
+            <label class="form-check-label" for="inlineRadio2">Music</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="talent" id="inlineRadio3" value="Dance" onclick="javascript:yesnoCheck();">
+            <label class="form-check-label" for="inlineRadio3">Dance</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="talent" id="inlineRadio4" value="Technology" onclick="javascript:yesnoCheck();">
+            <label class="form-check-label" for="inlineRadio4">Technology</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="talent" id="inlineRadio5" value="Other" onclick="javascript:yesnoCheck();">
+            <label class="form-check-label" for="inlineRadio5">Other</label>
+          </div>
+          
+          <div id="other" style="visibility:hidden">
+            <br>
+            <label for="other">If Other, Please specify</label>
+            <input type="text" id="other" name="other" placeholder="Your talent..">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="consent" id="flexCheckDefault" name="consent">
+            <label class="form-check-label" for="flexCheckDefault">
+              By clicking this checkbox I provide ABC authorization to use this data for XYZ purpose. However, your data will only be processed for this purpose, and will not be used for anything else.
+            </label>
+          </div>
+          <br><br>
+          <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <span class="mb-3 mb-md-0">&copy; 2024 Nokia</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script>
+    function yesnoCheck() {
+      if (document.getElementById('inlineRadio5').checked) {
+          document.getElementById('other').style.visibility = 'visible';
+      }
+      else document.getElementById('other').style.visibility = 'hidden';
+  
+  }
+  </script>
+
+  <script>
+    // Get Form by its id
+    const form = document.getElementById("google-form");
+
+    // App Script url
+    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbz-gkCnRnsPKcudJffl8FANQ89oKMPUs_zUsO4i3I8tIGfMGujyCEyLY-A5PpTpUZx8Jw/exec";
+    // Fuction to send data to google form when submit button is clicked
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      try {
+        fetch(googleAppScriptUrl, {
+          method: "POST",
+          mode: "no-cors",
+          body: new FormData(form),
+        }).then(() => {
+          // Do someting After successfull submission
+          form.reset();
+          console.log("success");
+          alert("Successfully Submitted");
+        });
+      } catch (error) {
+        // Do something for the error case
+        console.log(error);
+      }
+    });
+  </script>
+</body>
+</html>

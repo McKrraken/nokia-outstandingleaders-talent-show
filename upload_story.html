@@ -106,7 +106,7 @@
   <div class="container mb-4">
     <div class="row row-cols-1">
       <div class="col mt-5">
-        <form method="post" id="google-form">
+        <form method="post" id="google-form" enctype="multipart/form-data">
           <label for="fname">First Name</label>
           <input type="text" id="fname" name="firstname" placeholder="Your name..">
       
@@ -122,10 +122,10 @@
           <label for="link">Your Story</label>
           <textarea id="subject" id="story" name="story" placeholder="Please let us know your story" style="height:300px"></textarea>
           <label for="upload_photo"> Upload Photo here </label>
-          <label>
-          <input type="file" id="myFile" name="filename" accept="image/*"/>
-          </label>
-
+          <div>
+          <input type="file" name="photo_url" id="photo_url" accept="image/*" onchange="previewFile()"/> <br />
+          <input type="hidden" id="photo" name="photo">
+          </div>
           <label for="description">Description</label>
           <textarea id="subject" name="description" placeholder="Enter a catchy description of your video.." style="height:100px"></textarea>
           <div class="form-check">
@@ -161,8 +161,25 @@
   </script>
   <script>
     // Get Form by its id
+    function previewFile() {
+      const preview = document.querySelector("img");
+      const file = document.querySelector("input[type=file]").files[0];
+      console.log(file)
+      const reader = new FileReader();
+      const image = new Image();
+      reader.readAsDataURL(file);
+      reader.addEventListener(
+        "load",
+        () => {
+          // convert image file to base64 string
+          preview.src = reader.result;
+          console.log(reader)
+          document.getElementById("photo").value = reader.result;
+        },
+        false,
+      );
+    }    
     const form = document.getElementById("google-form");
-
     // App Script url
     const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbyPrw4bQXknSjHZonA7NAitoml7YtQZhUxLc7kMp6inwKxunAnA7dZGZbgdD41A8z54/exec";
     // Fuction to send data to google form when submit button is clicked
@@ -181,6 +198,7 @@
         });
       } catch (error) {
         // Do something for the error case
+        alert("Something is wrong not Submitted");
         console.log(error);
       }
     });

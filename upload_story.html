@@ -53,7 +53,15 @@
     .container {
       border-radius: 5px;
       background-color: #f2f2f2;
-      padding: 20px;
+      padding: 20px
+      ;
+    }
+    label, input {
+      display: block;
+    }
+    
+    label {
+        margin-bottom: 20px;
     }
   </style>
   <header class="navbar navbar-expand-lg bd-navbar mb-5">
@@ -113,6 +121,10 @@
           <input type="text" id="company" name="company" placeholder="Enter your company name..">
           <label for="link">Your Story</label>
           <textarea id="subject" id="story" name="story" placeholder="Please let us know your story" style="height:300px"></textarea>
+          <label for="upload_photo"> Upload Photo here </label>
+          <label>
+          <input type="file" id="myFile" name="filename" accept="image/*"/>
+          </label>
 
           <label for="description">Description</label>
           <textarea id="subject" name="description" placeholder="Enter a catchy description of your video.." style="height:100px"></textarea>

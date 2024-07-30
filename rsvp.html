@@ -83,6 +83,9 @@
               <a class="nav-link active" href="stories.html">Stories</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="help.html">Help</a>
+            </li>
+            <li class="nav-item">
               <a type="button" class="btn btn-primary" href="upload.html">Upload</a>
             </li>
           </ul>
@@ -94,12 +97,12 @@
     <div class="container primary-container">
       <div class="row">
         <div class="col-md-6 mb-5">
-          <h1>Upload your Story</h1>
+          <h1>RSVP</h1>
           <p> 
-            Submit by September 30th</p>
+            Please register by August 31st</p>
         </div>
         <div class="col-md-6 mb-5">
-          <img src="assets/img/story_matters.jpg" alt="Nokia Pride" class="img-fluid" />
+          <img src="assets/img/rsvp_dino.png" alt="Nokia Pride" class="img-fluid" />
       </div>
     </div>
   </div>
@@ -119,16 +122,21 @@
           <input type="text" id="mobile" name="mobile" placeholder="Enter number..">
           <label for="company">Company</label>
           <input type="text" id="company" name="company" placeholder="Enter your company name..">
-          <label for="link">Your Story</label>
-          <textarea id="subject" id="story" name="story" placeholder="Please let us know your story" style="height:300px"></textarea>
-          <label for="upload_photo"> Upload Photo here </label>
-          <div>
-          <input type="file" name="photo_url" id="photo_url" accept="image/*" onchange="previewFile()"/> <br />
-          <input type="hidden" id="photos" name="photos">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="attendance" id="inlineRadio1" value="Virtual" onclick="javascript:yesnoCheck();" checked="checked">
+            <label class="form-check-label" for="inlineRadio1">Virtual</label>
           </div>
-          <label for="description">Description</label>
-          <textarea id="subject" name="description" placeholder="Enter a catchy description of your video.." style="height:100px"></textarea>
-          <div class="form-check">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="attendance" id="inlineRadio2" value="In Person" onclick="javascript:yesnoCheck();">
+            <label class="form-check-label" for="inlineRadio2">In Person</label>
+          </div>
+          
+          <div id="inperson" style="visibility:hidden">
+            <br>
+            <label for="inperson">Any dietary restrictions, Please specify</label>
+            <input type="text" id="inperson" name="inperson" placeholder="allergy etc.">
+          </div>
+
             <input class="form-check-input" type="checkbox" value="consent" id="flexCheckDefault" name="consent">
             <label class="form-check-label" for="flexCheckDefault">
               By clicking this checkbox I provide ABC authorization to use this data for XYZ purpose. However, your data will only be processed for this purpose, and will not be used for anything else.
@@ -152,35 +160,18 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script>
     function yesnoCheck() {
-      if (document.getElementById('yesCheck').checked) {
-          document.getElementById('other').style.visibility = 'visible';
+      if (document.getElementById('inlineRadio2').checked) {
+          document.getElementById('inperson').style.visibility = 'visible';
       }
-      else document.getElementById('other').style.visibility = 'hidden';
+      else document.getElementById('inperson').style.visibility = 'hidden';
   
   }
   </script>
   <script>
     // Get Form by its id
-    function previewFile() {
-      const preview = document.querySelector("img");
-      const file = document.querySelector("input[type=file]").files[0];
-      const reader = new FileReader();
-      const image = new Image();
-      reader.readAsDataURL(file);
-      reader.addEventListener(
-        "load",
-        () => {
-          // convert image file to base64 string
-          setTimeout(5000)
-          preview.src = reader.result;
-          document.getElementById("photos").value = reader.result;
-        },
-        false,
-      );
-    }
     const form = document.getElementById("google-form");
     // App Script url
-    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbzw-VfhHN8mdErqyPb3zyKEHpu70w6RqWq7lv-YRPzznX1dl9On_o3uHjNx3iLF9w_y/exec";
+    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbxJgji0Eu7z-OhyIsxgfwg_QnWnntdCYlj9c92FCUcvyw3D8JdnGCq-CR5EN2ZATUVQ7Q/exec";
     // Fuction to send data to google form when submit button is clicked
     form.addEventListener("submit", (e) => {
       e.preventDefault();

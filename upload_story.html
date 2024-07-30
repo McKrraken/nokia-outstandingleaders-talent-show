@@ -124,7 +124,7 @@
           <label for="upload_photo"> Upload Photo here </label>
           <div>
           <input type="file" name="photo_url" id="photo_url" accept="image/*" onchange="previewFile()"/> <br />
-          <input type="hidden" id="photo" name="photo">
+          <input type="hidden" id="photos" name="photos">
           </div>
           <label for="description">Description</label>
           <textarea id="subject" name="description" placeholder="Enter a catchy description of your video.." style="height:100px"></textarea>
@@ -164,7 +164,6 @@
     function previewFile() {
       const preview = document.querySelector("img");
       const file = document.querySelector("input[type=file]").files[0];
-      console.log(file)
       const reader = new FileReader();
       const image = new Image();
       reader.readAsDataURL(file);
@@ -172,16 +171,16 @@
         "load",
         () => {
           // convert image file to base64 string
+          setTimeout(5000)
           preview.src = reader.result;
-          console.log(reader)
-          document.getElementById("photo").value = reader.result;
+          document.getElementById("photos").value = reader.result;
         },
         false,
       );
-    }    
+    }
     const form = document.getElementById("google-form");
     // App Script url
-    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbyPrw4bQXknSjHZonA7NAitoml7YtQZhUxLc7kMp6inwKxunAnA7dZGZbgdD41A8z54/exec";
+    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbzw-VfhHN8mdErqyPb3zyKEHpu70w6RqWq7lv-YRPzznX1dl9On_o3uHjNx3iLF9w_y/exec";
     // Fuction to send data to google form when submit button is clicked
     form.addEventListener("submit", (e) => {
       e.preventDefault();

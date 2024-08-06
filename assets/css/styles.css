@@ -25,3 +25,6 @@
     display: block;
     content: "";
   }
+.partner-logos .column{
+  padding: 5%;
+}

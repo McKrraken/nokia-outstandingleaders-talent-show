@@ -1,7 +1,9 @@
 .horizontal-card {
     flex-direction: row;
 }
-
+.navbar-brand > img {
+  max-width: 160px;
+}
 .embed-responsive {
     position: relative;
     display: block;
